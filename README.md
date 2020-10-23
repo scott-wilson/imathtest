@@ -13,6 +13,6 @@ AMD Ryzen 9 3950x, 32 gb of RAM, Ubuntu 20.04
 Results (average clock cycles over 5 attempts each)
 ===================================================
 
-| cpp original | c reimplemented | c pointer | rust c reimplmeneted | rust c pointer | rust reimplemented |
-| ------------ | --------------- | --------- | -------------------- | -------------- | ------------------ |
-| 138          | 2276            | 2277      | 1201                 | 1136           | 526                |
+| cpp original | c reimplemented | c pointer | rust c reimplmeneted | rust c pointer | rust (partial) reimplemented | rust (full) reimplement |
+| ------------ | --------------- | --------- | -------------------- | -------------- | ---------------------------- | ----------------------- |
+| 138          | 2276            | 2277      | 1201                 | 1136           | 526                          | 6                       |

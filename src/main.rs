@@ -78,6 +78,41 @@ fn method_c(count: usize) {
     println!("{} {} {}", d.x, d.y, d.z);
 }
 
+fn method_d(count: usize) {
+    let mut t = unsafe { clock() };
+    let mut c = bindings::V3d {
+        x: 0.0,
+        y: 0.0,
+        z: 0.0,
+    };
+    let mut d = bindings::V3d {
+        x: 0.0,
+        y: 0.0,
+        z: 0.0,
+    };
+    for _ in 0..count {
+        let a = bindings::V3d {
+            x: 0.0,
+            y: 0.0,
+            z: 0.0,
+        };
+        let b = bindings::V3d {
+            x: 0.0,
+            y: 0.0,
+            z: 0.0,
+        };
+        c = a + b;
+        d.x += c.x;
+        d.y += c.y;
+        d.z += c.z;
+    }
+
+    t = unsafe { clock() } - t;
+
+    println!("{}", t);
+    println!("{} {} {}", d.x, d.y, d.z);
+}
+
 fn main() -> Result<(), ()> {
     let args: Vec<String> = std::env::args().into_iter().collect();
 
@@ -90,6 +125,7 @@ fn main() -> Result<(), ()> {
     method_a(count);
     method_b(count);
     method_c(count);
+    method_d(count);
 
     Ok(())
 }
